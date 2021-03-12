@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import utils.Driver;
 
+import java.util.List;
+
 public class ValidationSteps {
 
     WebDriver driver;
@@ -28,7 +30,10 @@ public class ValidationSteps {
         Assert.assertEquals(driver.getTitle(), "EspoCRM Demo");
     }
     @Then("the user should see the function names")
-    public void the_user_should_see_the_function_names(DataTable dataTable) {
-
+    public void the_user_should_see_the_function_names(List<String> functionalNames) {
+        Assert.assertEquals(homePage.functionNames.size(),functionalNames.size());
+        for (int i = 0; i < homePage.functionNames.size(); i++) {
+        Assert.assertEquals(functionalNames.get(i),homePage.functionNames.get(i).getText().trim());
+        }
     }
 }

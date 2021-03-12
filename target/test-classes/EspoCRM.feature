@@ -18,5 +18,5 @@ Feature: EspoCRM
     | Products |
     | Emails |
     | Cases |
-    | Calender |
+    | Calendar |
     | Tasks |
