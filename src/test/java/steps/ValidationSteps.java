@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import pages.AccountsPage;
 import pages.HomePage;
 import utils.Driver;
 
@@ -15,9 +16,10 @@ public class ValidationSteps {
 
     WebDriver driver;
     HomePage homePage;
+    AccountsPage accountsPage;
 
     @Given("the user navigates to the {string}")
-    public void the_user_navigates_to_the(String url) {
+    public void the_user_navigates_to_the(String url) throws InterruptedException {
        driver = Driver.getDriver();
        driver.get(url);
         homePage=new HomePage(driver);
@@ -35,5 +37,23 @@ public class ValidationSteps {
         for (int i = 0; i < homePage.functionNames.size(); i++) {
         Assert.assertEquals(functionalNames.get(i),homePage.functionNames.get(i).getText().trim());
         }
+    }
+    @When("the user opens the Accounts")
+    public void the_user_opens_the_accounts() throws InterruptedException {
+       accountsPage=new AccountsPage(driver);
+       accountsPage.clickAccountButton();
+    }
+    @Then("the user clicks the Create Account button")
+    public void the_user_clicks_the_create_account_button() {
+        accountsPage=new AccountsPage(driver);
+       accountsPage.clickCreateAccButton();
+    }
+    @Then("the user create {int} new account {string}, {string}, {string}, {string}")
+    public void the_user_create_new_account(Integer numberOfAccounts, String name, String website, String type, String country) {
+
+    }
+    @Then("the user validate the new users is created")
+    public void the_user_validate_the_new_users_is_created() {
+
     }
 }

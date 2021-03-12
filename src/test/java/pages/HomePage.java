@@ -15,7 +15,8 @@ public class HomePage {
 @FindBy(xpath = "//button[@id='btn-login']")
     public WebElement loginButton;
 
-    public void clickLogin(){
+    public void clickLogin() throws InterruptedException {
+        Thread.sleep(2000);
         loginButton.click();
     }
     @FindBy(css = ".not-in-more")
