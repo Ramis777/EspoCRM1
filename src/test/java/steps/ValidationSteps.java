@@ -59,5 +59,5 @@ public class ValidationSteps {
 
     }
     
-    System.out.println("Can you see changes");
+    System.out.print("Can you see this?");
 }
