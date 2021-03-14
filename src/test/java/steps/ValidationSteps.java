@@ -13,6 +13,7 @@ import utils.Driver;
 import java.util.List;
 
 public class ValidationSteps {
+   
 
     WebDriver driver;
     HomePage homePage;
@@ -54,6 +55,9 @@ public class ValidationSteps {
     }
     @Then("the user validate the new users is created")
     public void the_user_validate_the_new_users_is_created() {
+      
 
     }
+    
+    System.out.println("Can you see changes");
 }
